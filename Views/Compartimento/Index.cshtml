@@ -1,0 +1,65 @@
+@model IEnumerable<BeachSys.Models.Compartimento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Altura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Largura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDisponivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Armario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Altura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Largura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDisponivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armario.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Cpf)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompartimentoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CompartimentoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompartimentoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
